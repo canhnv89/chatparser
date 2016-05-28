@@ -5,7 +5,7 @@ This project is to demonstrate parsing functions from chat texts such as
 - Emoticons '(smile)'
 - Website links 
 
-# Main functions
+## Main functions
 
 - Receive chat texts from keyboard
 - Sample inputs to test functions
@@ -14,7 +14,9 @@ This project is to demonstrate parsing functions from chat texts such as
 - Network status listener to notify user about some missing information due to no connection
 - Android unit tests to test parsing functions automatically
 
-# Screenshot
+## Screenshot
 ![Alt text](/screenshot_1.png?raw=true)
 
-
+## Author
+Van Canh Nguyen
+canhnv@gmail.com
