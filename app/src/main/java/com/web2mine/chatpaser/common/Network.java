@@ -3,6 +3,7 @@ package com.web2mine.chatpaser.common;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
@@ -50,6 +51,21 @@ public class Network {
             mCurrentNetworkState = NetworkState.AVAILABLE;
             Toast.makeText(context, R.string.toast_network_available, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private static final BroadcastReceiver mNetworkChangeReceiver = new NetworkChangeReceiver();
+
+    public static void registerNetworkChangeReceiver(Context context)
+    {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        filter.addAction("android.net.wifi.WIFI_STATE_CHANGED");
+        context.registerReceiver(mNetworkChangeReceiver, filter);
+    }
+
+    public static void unregisterNetworkChangeReceiver(Context context)
+    {
+        context.unregisterReceiver(mNetworkChangeReceiver);
     }
 
     /**
