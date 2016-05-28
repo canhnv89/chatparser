@@ -75,6 +75,13 @@ public class MainActivity extends AppCompatActivity implements UniParser.OnParsi
         super.onResume();
         //Check network status
         Network.showNotificationIfNoNetwork(this);
+        Network.registerNetworkChangeReceiver(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Network.unregisterNetworkChangeReceiver(this);
     }
 
     @Override
